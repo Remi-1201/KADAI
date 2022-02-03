@@ -1,7 +1,12 @@
-<h3>以下の内容で、送信する。</h3>
+<header>
+  <h1>Let's Twista!</h1>
+    <h2>確認画面</h2>
+</header>
+      <h3>以下の内容で、送信する。</h3>
+
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
-  <p>本文:<%= @post.content %></p>
+    <p>本文:<%= @post.content %></p>
   <%= form.submit  "登録する" %>
-<%= form.submit "戻る", name: 'back' %>
+  <%= form.submit "戻る", name: 'back' %>
 <% end %>
