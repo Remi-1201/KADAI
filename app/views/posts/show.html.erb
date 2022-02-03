@@ -1,6 +1,12 @@
-<h1>ブログ詳細画面</h1>
-<p>内容: <%= @post.content %></p>
+<header>
+    <h1>Let's Twista!</h1>
+    <h2>詳細画面</h2>
+</header>
 <br>
+    <table>
+      <tr><th class="th_label">内容</th></tr>
+      <tr><th class="th_content"><%= @post.content %></th></tr>
+    </table>
 <br>
-<%= link_to '編集', edit_post_path %>
-<%= link_to '戻る', :back %>
+<%= link_to '編集', edit_post_path, data: { confirm: '本当に編集しても宜しいでしょうか？' }, class:"link" %>
+<%= link_to '戻る', :back, class:"link" %>
