@@ -1,5 +1,13 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :authenticate_user
+
+  def authenticate_user
+    @current_user = User.find_by(id: session[:user_id])
+    if @current_user.nil?
+      redirect_to new_session_path
+    end
+  end
 
   def index
     @blogs = Blog.all.order(created_at: :desc)

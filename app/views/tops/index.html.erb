@@ -1,8 +1,10 @@
 <h1 class="title">Instigrim</h1>
   <p id="notice"><%= notice %></p>
-    <p><div class="content1">
-      <%= button_to 'All Posts', blogs_path, method: :get, class: "button3" %>
-    </div></p>
-    <p><div class="content2">
-      <%= button_to 'Make new Post', new_blog_path, method: :get, class: "button3" %>
-    </div></p>
+      <% if logged_in? %>
+    <div class="contents">
+        <p><%= button_to 'All Posts', blogs_path, method: :get, class: "button3" %></p>
+        <p><%= button_to 'Make new Post', new_blog_path, method: :get, class: "button3" %></p>
+      <% else %>
+        <p>Please log in to continue</p>
+      <% end %>
+    </div>
