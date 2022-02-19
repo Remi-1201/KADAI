@@ -3,7 +3,11 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
-<div class="contents">
-  <p><div class="content1"><%= link_to 'All Posts', blogs_path %></div></p>
-  <p><div class="content2"><%= link_to 'Make new Post', new_blog_path %></div></p>
-</div> 
+<% if @user.avatar.attached? %>
+  <!-- 表示 -->
+  <%= image_tag @user.avatar.url  %>
+<% end %>
+
+
+
+

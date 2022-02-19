@@ -4,10 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.1'
 
 gem 'rails', '~> 6.0.3'
-# Use postgresql as the database for Active Record
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
-# Use SCSS for stylesheets
+
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
