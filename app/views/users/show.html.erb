@@ -3,10 +3,9 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
-<% if @user.avatar.attached? %>
-  <!-- 表示 -->
-  <%= image_tag @user.avatar.url  %>
-<% end %>
+<%= button_to "My favourites", favorites_path, method: :get, class:"button3" %>
+<%= button_to "Edit my account", edit_user_path, method: :get, class:"button3" %>
+
 
 
 

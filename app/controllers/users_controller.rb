@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -26,14 +27,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: "Your informations have been updated!"
+    else
+      render :edit
     end
   end
 
@@ -51,7 +49,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :password_digest, :password,
-      :password_confirmation, :email, :avatar)
+    params.require(:user).permit(:name, :password_digest, :password, :password_confirmation, :email, :avatar, :avatar_cache)
   end
 end
