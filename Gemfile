@@ -19,7 +19,7 @@ gem 'mimemagic', '0.3.7'
 
 gem 'bcrypt'
 gem 'nokogiri', '1.11.2'
-
+gem 'faker'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
