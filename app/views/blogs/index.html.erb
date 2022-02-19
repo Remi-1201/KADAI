@@ -4,9 +4,7 @@
     <p id="notice"><%= notice %></p>
   </div>
 </div>
-<%= link_to 'Make new post', new_blog_path, class: 'link_blogs_index'%>
-<br>
-<br>
+<p><%= button_to 'Make new Post', new_blog_path, method: :get, class: "button3" %></p>
 <div class="table_frame">
   <table>
     <% @blogs.each do |blog| %>
