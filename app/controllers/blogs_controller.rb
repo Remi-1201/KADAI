@@ -30,7 +30,6 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.build(blog_params)
-
     if params[:back]
       redirect_to blogs_path
     else
@@ -66,6 +65,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:user_id, :title, :name, :image_cache, :content, :image,:avatar_user, :avatar_user_cache)
+    params.require(:blog).permit(:user_id, :title, :name, :image_cache, :content, :image)
   end
 end
