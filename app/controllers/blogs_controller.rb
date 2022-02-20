@@ -11,10 +11,8 @@ class BlogsController < ApplicationController
   end
 
   def correct_user
-    if current_user.id != blogs.user_id
-      flash[:notice] = "編集権限がないです"
-      redirect_to blogs_path
-    end
+    @user = @blog.user
+    redirect_to(blogs_path) unless @user == current_user    
   end
 
   def set_blog
