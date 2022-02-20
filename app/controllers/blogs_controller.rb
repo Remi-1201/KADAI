@@ -1,12 +1,24 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :authenticate_user
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def authenticate_user
     @current_user = User.find_by(id: session[:user_id])
     if @current_user.nil?
       redirect_to new_session_path
     end
+  end
+
+  def correct_user
+    if current_user.id != blogs.user_id
+      flash[:notice] = "編集権限がないです"
+      redirect_to blogs_path
+    end
+  end
+
+  def set_blog
+    @blog = Blog.find(params[:id])
   end
 
   def index
@@ -61,10 +73,6 @@ class BlogsController < ApplicationController
   end
 
   private
-  def set_blog
-    @blog = Blog.find(params[:id])
-  end
-
   def blog_params
     params.require(:blog).permit(:user_id, :title, :name, :image_cache, :content, :image)
   end

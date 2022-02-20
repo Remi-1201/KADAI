@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :contacts
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:new, :create, :show, :edit, :update, :index]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :users, only: [:new, :create, :show, :edit, :update, :index]
   resources :blogs do
       collection do
       post :confirm
