@@ -10,7 +10,9 @@
       <p><%= f.password_field :password %></p>
       <p><%= f.label "Password confirmation"  %></p>
       <p><%= f.password_field :password_confirmation %></p>
-    <%# add avatar %>
+      <p><%= f.label :avatar %></p>
+      <p><%= f.file_field :avatar %></p>
+      <p><%= f.hidden_field :avatar_cache %></p><br>
       <p><%= f.submit "Submit" %></p>
     </form>
     <% end %>

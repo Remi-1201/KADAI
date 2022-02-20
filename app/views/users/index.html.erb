@@ -10,17 +10,16 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Icon</th>
-      <th colspan="2"></th>
+      <th>Option</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.icon %></td>
-          <% if current_user.id == user.id %>
+        <td><%= user.email %></td>        
+        <% if current_user.id == user.id %>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

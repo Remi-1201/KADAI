@@ -1,4 +1,11 @@
-<h1><%= @user.name %>のページ</h1>
+<h1>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize:'50x50').processed , class: "avatar-index rounded-circle mx-auto" %>
+  <% else %>
+    <img class="avatar-index rounded-circle mx-auto" src="<%= "/images/default_user.png " %>" alt="Userimage">
+  <% end %><%= @user.name %>のページ
+</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>メールアドレス: <%= @user.email %></p>
@@ -6,9 +13,4 @@
 <%= button_to "My favourites", favorites_path, method: :get, class:"button3" %>
 <%= button_to "Edit my account", edit_user_path, method: :get, class:"button3" %>
 <%= button_to "All users", users_path, method: :get, class:"button3" %>
-
-
-
-
-
 
