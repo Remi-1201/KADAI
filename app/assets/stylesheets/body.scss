@@ -6,15 +6,28 @@ body {
 }
 
 .th_title{
-    color:#dc2743;
     font-style: italic;
+    color: rgb(129, 120, 120);
 }
 
 .th_label{
     font-style: italic;
 }
 
+.th_content{
+    padding-top: 10px;
+    font-style: italic;
+    text-align: left;
+    font-weight: bold;
+    color: rgb(129, 120, 120);
+}
+
 .link{
     color:#dc2743;
+    font-style: italic;
+}
+
+.user_index{
+    text-align: left;
     font-style: italic;
 }

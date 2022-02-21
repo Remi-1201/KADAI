@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :contacts
-  resources :favorites, only: [:new, :create, :show, :edit, :update, :index]
+  resources :favorites
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update, :index]
   resources :blogs do

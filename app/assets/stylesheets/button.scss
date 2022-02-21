@@ -45,7 +45,7 @@
 } 
 
 .button3{
-    display: inline-block;
+    display: inline-table;
     outline: none;
     cursor: pointer;
     margin: 10px auto;
@@ -69,3 +69,24 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );    color: white;
     height: max-content;
 } 
+
+.unlike{
+    display:  inline-table;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    color: rgb(11, 179, 212) ;
+    font-size: 1rem;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.unlike:hover{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);color: white;
+    height: max-content;
+}
+

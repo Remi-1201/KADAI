@@ -1,0 +1,37 @@
+<br><br>
+<table>
+  <% if @favorites.empty? %>
+    <h2>まだお気に入りがありません。</h2>
+  <% else %>
+    <h2>お気に入りリスト</h2>    
+  <% end %>
+<br>
+  <div class="notice">
+  <p id="notice"><%= notice %>
+  </div>
+<br>
+  <% @favorites.each do |favorite| %>
+    <tr>
+      <% if favorite.user_id == current_user.id %>
+          <% if favorite.present? %>
+        <tr>
+          <td>Posted by :&emsp;<%= favorite.blog.user.name %></td>       
+          <td></td>
+          <td><%= button_to 'Unlike',favorite_path(id: favorite.id), method: :delete, class: 'unlike' %></td>  
+        </tr>
+          <% else %>
+        <tr>
+          <td>Posted by :&emsp;<%= favorite.blog.user.name %></td>       
+          <td></td>
+          <td><%= button_to 'Like', favorites_path(blog_id: blog.id), method: :post, class: "like" %></td>
+        </tr>
+          <% end %>
+        <tr><th colspan="3" class="favorite"><%= favorite.blog.title %></th></tr>
+        <tr><th colspan="3" class="favorite"><%= favorite.blog.content %></th></tr>
+
+      <% end %>      
+    </tr>
+  <% end %>
+</table>
+<br>
+<br>

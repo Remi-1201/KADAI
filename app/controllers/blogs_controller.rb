@@ -21,10 +21,12 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all.order(created_at: :desc)
+    @favorites = Favorite.all
   end
 
   def show
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @favorites= @blogs.favorite_users
   end
 
   def new

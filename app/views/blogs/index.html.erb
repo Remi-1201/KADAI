@@ -1,24 +1,40 @@
 <h1>All Posts</h1>
 <div class="notifications">
   <div class="notice">
-    <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %>
   </div>
 </div>
 <p><%= button_to 'Make new Post', new_blog_path, method: :get, class: "button3" %></p>
+
 <div class="table_frame">
   <table>
-    <% @blogs.each do |blog| %>
-      <tr><th colspan="3" class="th_label"><%= blog.created_at.to_s(:datetime) %> by <%= blog.user.name %> </th></tr>
-      <tr><th colspan="3" class="th_title">Title:&emsp;<%= blog.title %></th></tr>        
-      <tr><th colspan="3" class="th_image"><%= image_tag(blog.image.url) if blog.image && blog.image.url %></th></tr>
-      <tr><th colspan="3" class="th_content"><%= blog.content %></th></tr>
-      <tr>
-      <% if current_user.id == blog.user.id %>
-        <td><%= button_to 'Delete', blog_path(blog.id), method: :delete, class: "button2" %></td>
-        <td><%= button_to "Edit", edit_blog_path(blog.id),  method: :get, class: "button2" %></td>
-      <% end %>          
-        <td><%= button_to 'Detail', blog_path(blog.id),  method: :get, class: "button2" %></td>
-      </tr>
+    <% @blogs.each do |blog| %>  
+        <tr><th colspan="3" class="th_label"><%= blog.created_at.to_s(:datetime) %> by <%= blog.user.name %> </th></tr>     
+        <tr><th colspan="3" class="th_title">Title:&emsp;<%= blog.title %></th></tr>
+        <td></td><td></td>
+        <% unless blog.user_id == current_user.id %>
+          <td><%= button_to 'Like', favorites_path(blog_id: blog.id), method: :post, class: "button3" %></td>
+        <% end %>
+        <tr><th colspan="3" class="th_image"><%= image_tag(blog.image.url) if blog.image && blog.image.url %></th></tr>
+        <tr><th colspan="3" class="th_content">Content:&emsp;<%= blog.content %></th></tr>
+        <% unless blog.user_id == current_user.id %>
+          <td></td> 
+          <td></td> 
+          <td><%= button_to 'Detail', blog_path(blog.id),  method: :get, class: "button2" %></td>
+        <% else %>
+          <td><%= button_to 'Delete', blog_path(blog.id), method: :delete, class: "button2" %></td>
+          <td><%= button_to "Edit", edit_blog_path(blog.id),  method: :get, class: "button2" %></td>
+          <td><%= button_to 'Detail', blog_path(blog.id),  method: :get, class: "button2" %></td>
+        <% end %>
     <% end %>
   </table>
-</div>
+</div>   
+
+
+
+
+            
+            
+  
+        
+      

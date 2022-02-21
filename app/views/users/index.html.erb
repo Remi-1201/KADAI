@@ -5,12 +5,11 @@
   </div>
 </div>
 
-<table>
+<table class="user_index">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Option</th>
+      <th class="user_th1">Name</th>
+      <th class="user_th2">Email</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -20,9 +19,9 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>        
         <% if current_user.id == user.id %>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="user_td1"><%= link_to 'Show', user , class:"button2" %></td>
+        <td class="user_td1"><%= link_to 'Edit', edit_user_path(user) , class:"button2" %></td>
+        <td class="user_td1"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } , class:"button2" %></td>
         <% end %>          
       </tr>
     <% end %>
@@ -30,5 +29,5 @@
 </table>
 <br>
 <%= button_to 'New User', new_user_path , method: :get, class:"button3" %>
-<%= button_to 'Back to all posts', blogs_path , method: :get, class:"button3" %>
+<%= link_to 'Back',user_path(current_user.id),class:"button3" %> 
 <br>
