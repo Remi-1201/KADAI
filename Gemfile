@@ -22,7 +22,7 @@ gem 'nokogiri', '1.11.2'
 gem 'faker'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rexml'
-
+gem 'letter_opener_web'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -36,7 +36,6 @@ group :development do
 
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web'
 end
 
 group :test do
