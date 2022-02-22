@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy]
   before_action :authenticate_user
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -42,7 +42,8 @@ class BlogsController < ApplicationController
 
 
   def create
-    @blog = current_user.blogs.build(blog_params)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     if params[:back]
       redirect_to blogs_path
     else
@@ -64,7 +65,8 @@ class BlogsController < ApplicationController
   end
 
   def confirm
-    @blog= current_user.blogs.build(blog_params)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     render :new if @blog.invalid?
   end
 
@@ -75,6 +77,6 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:user_id, :title, :name, :image_cache, :content, :image)
+    params.require(:blog).permit(:user_id, :title, :name, :image_cache, :content, :image, :content_cache, :title_cache)
   end
 end
