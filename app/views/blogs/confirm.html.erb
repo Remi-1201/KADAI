@@ -4,7 +4,7 @@
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
-<%= link_to 'Back', new_blog_path %>
+<%= link_to 'Back', new_blog_path , class: "button3"%>
 <br>
 <br>
 <div class="table_frame">
@@ -15,6 +15,7 @@
       <%= form.hidden_field :image_cache %>
     </th></tr>
       <tr><th colspan="3" class="th_content">Content:&emsp; <%= @blog.content %></th></tr>
+      <tr><th colspan="3" class="th_content"></th></tr>
       <tr><th colspan="3" class="td_link"><%= form.submit %></th></tr>        
     <% end %> 
   </table>

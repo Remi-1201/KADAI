@@ -1,11 +1,12 @@
-<h1>Your Post</h1>
-<%= link_to 'Back', blogs_path %>
+<h1>Detail</h1>
+<%= link_to 'Back', blogs_path , class: "button3"%>
+&emsp; &emsp;
 
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to 'Unlike', favorite_path(id: @favorite.id), method: :delete, class: 'unlike' %>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
+    <%= link_to 'Like!', favorites_path(blog_id: @blog.id), method: :post, class: "button3" %>
   <% end %>
 <% end %>
 
@@ -14,7 +15,7 @@
       <tr><th colspan="3" class="th_label">Created by <%= @blog.user.name %> </th></tr>
       <tr><th colspan="3" class="th_title">Title:&emsp;<%= @blog.title %></th></tr>        
       <tr><th colspan="3" class="th_image">
-        <%= @blog.image %>
+        <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
       </th></tr>
       <tr><th colspan="3" class="th_content"><%= @blog.content %></th></tr>       
   </table>
