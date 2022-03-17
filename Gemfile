@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
-
+gem 'fog-aws'
 
 gem 'bcrypt'
 gem 'nokogiri', '1.11.2'
