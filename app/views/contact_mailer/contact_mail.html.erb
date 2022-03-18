@@ -1,7 +1,7 @@
 <h1>投稿が完了しました！</h1>
 
 <h4>Name: <%= @contact.user.name %></h4>
-
+<% if @image.present? %>
 <p><%= image_tag @contact.image.url %></p>
-
+<% end %>
 <h4>Content: <%= @contact.content %></h4>
