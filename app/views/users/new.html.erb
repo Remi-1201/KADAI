@@ -17,11 +17,3 @@
 <% end %>
 <%= link_to 'Back', @user,class:"button2" %> 
 <br>
-
-     <% Label.all.each do |label| %>
-        <%= form.check_box :label, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
-        <%= form.label :label, label.name, class:"label-bg", value: label[:id]%>
-        <%= form.hidden_field :label_ids , { multiple: true } %>
-      <% end %>
-
-      <p><%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %> </p>
