@@ -109,18 +109,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'nameless-caverns-85886.herokuapp.com'}
-  config.action_mailer.delivery_method = :letter_opener_web
+  # config.action_mailer.default_url_options = { host: 'nameless-caverns-85886.herokuapp.com'}
+  # config.action_mailer.delivery_method = :letter_opener_web
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    user_name: ENV['SENDGRID_PASSWORD'],
-    password: ENV['SENDGRID_USERNAME'],
-    domain: "heroku.com",
-    address: "smtp.sendgrid.net",
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = {
+  #   user_name: ENV['SENDGRID_PASSWORD'],
+  #   password: ENV['SENDGRID_USERNAME'],
+  #   domain: "heroku.com",
+  #   address: "smtp.sendgrid.net",
+  #   port: 587,
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
 
 end

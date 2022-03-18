@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
       redirect_to blogs_path
     else
       if @blog.save
-        ContactMailer.contact_mail(@blog).deliver
+        # ContactMailer.contact_mail(@blog).deliver
         redirect_to blogs_path, notice: "Blog was successfully created."
       else
         render :new
