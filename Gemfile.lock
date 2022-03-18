@@ -58,12 +58,30 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrussh (1.4.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     bcrypt (3.1.17)
+    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capistrano (3.16.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (2.0.1)
+      capistrano (~> 3.1)
+    capistrano-rails (1.6.2)
+      capistrano (~> 3.1)
+      capistrano-bundler (>= 1.1, < 3)
+    capistrano-rbenv (2.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+    capistrano3-unicorn (0.2.1)
+      capistrano (~> 3.1, >= 3.1.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -88,6 +106,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.3.0)
     erubi (1.10.0)
     excon (0.92.0)
     faker (2.20.0)
@@ -119,6 +138,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kgio (2.11.4)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.0)
@@ -149,6 +169,9 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.5)
     multi_json (1.15.0)
+    net-scp (3.0.0)
+      net-ssh (>= 2.6.5, < 7.0.0)
+    net-ssh (6.1.0)
     nio4r (2.5.8)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
@@ -188,6 +211,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
+    raindrops (0.20.0)
     rake (13.0.6)
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
@@ -223,6 +247,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sshkit (1.21.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     ssrf_filter (1.0.7)
     thor (1.2.1)
     thread_safe (0.3.6)
@@ -232,6 +259,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
+    unicorn (6.1.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -258,11 +288,18 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bcrypt_pbkdf
   bootsnap (>= 1.4.2)
   byebug
+  capistrano (= 3.16.0)
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rbenv
+  capistrano3-unicorn
   capybara (>= 2.15)
   carrierwave
   dotenv-rails
+  ed25519
   faker
   fog-aws
   jbuilder (~> 2.7)
@@ -281,6 +318,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  unicorn
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.0)

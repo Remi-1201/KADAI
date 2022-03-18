@@ -23,10 +23,18 @@ gem 'faker'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rexml'
 gem 'letter_opener_web'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'capistrano', '3.16.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
